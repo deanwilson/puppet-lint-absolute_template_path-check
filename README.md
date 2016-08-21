@@ -21,3 +21,12 @@ This plugin provides a new check to `puppet-lint`.
 ```
 WARNING: template module paths should be relative, not absolute on line 5
 ```
+
+## Other puppet-lint plugins
+
+You can find a list of my `puppet-lint` plugins in the
+[unixdaemon puppet-lint-plugins](https://github.com/deanwilson/unixdaemon-puppet-lint-plugins) repo.
+
+### Author
+
+[Dean Wilson](http://www.unixdaemon.net)
