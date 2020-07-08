@@ -1,19 +1,18 @@
 require 'spec_helper'
 
 describe 'absolute_template_path' do
-
   let(:msg) { 'template module paths should be relative, not absolute' }
 
   context 'with fix disabled' do
     context 'template with a relative module path' do
       let(:code) do
-        <<-EOS
+        <<-TEST_CLASS
           class template_tester {
             file { '/tmp/template':
               content => template('example/template.erb'),
             }
           }
-        EOS
+        TEST_CLASS
       end
 
       it 'should not detect any problems' do
@@ -23,13 +22,13 @@ describe 'absolute_template_path' do
 
     context 'template with an absolute module path' do
       let(:code) do
-        <<-EOS
+        <<-TEST_CLASS
           class template_tester {
             file { '/tmp/template':
               content => template('/etc/puppet/modules/example/template.erb'),
             }
           }
-        EOS
+        TEST_CLASS
       end
 
       it 'should detect a single problem' do
@@ -37,9 +36,8 @@ describe 'absolute_template_path' do
       end
 
       it 'should create a warning' do
-         expect(problems).to contain_warning(msg).on_line(3).in_column(26)
+        expect(problems).to contain_warning(msg).on_line(3).in_column(26)
       end
     end
   end
-
 end
