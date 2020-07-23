@@ -4,7 +4,7 @@ describe 'absolute_template_path' do
   let(:msg) { 'template module paths should be relative, not absolute' }
 
   context 'with fix disabled' do
-    context 'template with a relative module path' do
+    context 'when the template has a relative module path' do
       let(:code) do
         <<-TEST_CLASS
           class template_tester {
@@ -20,7 +20,7 @@ describe 'absolute_template_path' do
       end
     end
 
-    context 'template with an absolute module path' do
+    context 'when the template has an absolute module path' do
       let(:code) do
         <<-TEST_CLASS
           class template_tester {
