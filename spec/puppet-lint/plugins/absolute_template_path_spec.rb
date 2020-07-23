@@ -4,7 +4,7 @@ describe 'absolute_template_path' do
   let(:msg) { 'template module paths should be relative, not absolute' }
 
   context 'with fix disabled' do
-    context 'template with a relative module path' do
+    context 'when the template has a relative module path' do
       let(:code) do
         <<-TEST_CLASS
           class template_tester {
@@ -15,12 +15,12 @@ describe 'absolute_template_path' do
         TEST_CLASS
       end
 
-      it 'should not detect any problems' do
+      it 'detects no problems' do
         expect(problems).to have(0).problems
       end
     end
 
-    context 'template with an absolute module path' do
+    context 'when the template has an absolute module path' do
       let(:code) do
         <<-TEST_CLASS
           class template_tester {
@@ -31,11 +31,11 @@ describe 'absolute_template_path' do
         TEST_CLASS
       end
 
-      it 'should detect a single problem' do
+      it 'detects a single problem' do
         expect(problems).to have(1).problem
       end
 
-      it 'should create a warning' do
+      it 'creates a warning' do
         expect(problems).to contain_warning(msg).on_line(3).in_column(26)
       end
     end
