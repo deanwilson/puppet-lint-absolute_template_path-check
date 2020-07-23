@@ -17,9 +17,9 @@ PuppetLint.new_check(:absolute_template_path) do
         # if we made it here it's a file resource with a template parameter
         # that begins with an absolute path, so raise a lint issue for it.
         notify :warning, {
-          message: 'template module paths should be relative, not absolute',
-          line: value_token.line,
-          column: value_token.column,
+          message:     'template module paths should be relative, not absolute',
+          line:        value_token.line,
+          column:      value_token.column,
           param_token: content_token,
           value_token: value_token,
         }
