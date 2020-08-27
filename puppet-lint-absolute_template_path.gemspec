@@ -19,7 +19,10 @@ Gem::Specification.new do |spec|
     template('/etc/puppet/modules/example/templates/template.erb')
   END_OF_DESCRIPTION
 
+  spec.required_ruby_version = '>= 2.5.0'
+
   spec.add_dependency             'puppet-lint', '>= 1.1', '< 3.0'
+
   spec.add_development_dependency 'rake', '~> 13.0.0'
   spec.add_development_dependency 'rspec', '~> 3.9.0'
   spec.add_development_dependency 'rspec-collection_matchers', '~> 1.0'
