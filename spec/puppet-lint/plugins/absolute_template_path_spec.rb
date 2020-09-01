@@ -19,6 +19,24 @@ describe 'absolute_template_path' do
     end
   end
 
+  context 'with file resource but no template call' do
+    context 'when the template has a relative module path' do
+      let(:code) do
+        <<-TEST_CLASS
+          class template_tester {
+            file { '/tmp/template':
+              content => 'A static string',
+            }
+          }
+        TEST_CLASS
+      end
+
+      it 'detects no problems' do
+        expect(problems).to have(0).problems
+      end
+    end
+  end
+
   context 'with fix disabled' do
     context 'when the template has a relative module path' do
       let(:code) do
