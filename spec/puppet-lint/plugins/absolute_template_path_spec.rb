@@ -3,6 +3,40 @@ require 'spec_helper'
 describe 'absolute_template_path' do
   let(:msg) { 'template module paths should be relative, not absolute' }
 
+  context 'when the manifest has no file resources' do
+    let(:code) do
+      <<-TEST_CLASS
+        class no_file_resource {
+          host { 'syslog':
+            ip => '10.10.10.10',
+          }
+        }
+      TEST_CLASS
+    end
+
+    it 'does not detect any problems' do
+      expect(problems).to have(0).problems
+    end
+  end
+
+  context 'with file resource but no template call' do
+    context 'when the template has a relative module path' do
+      let(:code) do
+        <<-TEST_CLASS
+          class template_tester {
+            file { '/tmp/template':
+              content => 'A static string',
+            }
+          }
+        TEST_CLASS
+      end
+
+      it 'detects no problems' do
+        expect(problems).to have(0).problems
+      end
+    end
+  end
+
   context 'with fix disabled' do
     context 'when the template has a relative module path' do
       let(:code) do
