@@ -7,7 +7,7 @@ jobs:
     name: "Run Rspec Tests"
     env:
       PUPPET_GEM_VERSION: "~> 6.16.0"
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
