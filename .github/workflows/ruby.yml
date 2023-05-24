@@ -6,15 +6,15 @@ jobs:
   build:
     name: "Run Rspec Tests"
     env:
-      PUPPET_GEM_VERSION: "~> 6.16.0"
+      PUPPET_GEM_VERSION: "~> 7.24.0"
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
-    - name: Set up Ruby 2.5
+    - name: Set up Ruby 2.7
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '2.5'
+        ruby-version: '2.7'
     - name: Build and test with Rake
       run: |
         gem install bundler
