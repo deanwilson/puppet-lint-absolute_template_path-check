@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name        = 'puppet-lint-absolute_template_path'
-  spec.version     = '1.0.1'
+  spec.version     = '1.0.2'
   spec.homepage    = 'https://github.com/deanwilson/puppet-lint-absolute_template_path-check'
   spec.license     = 'MIT'
   spec.author      = 'Dean Wilson'
@@ -19,16 +19,17 @@ Gem::Specification.new do |spec|
     template('/etc/puppet/modules/example/templates/template.erb')
   END_OF_DESCRIPTION
 
-  spec.required_ruby_version = '>= 2.5.0'
+  spec.required_ruby_version = '>= 2.7.0'
 
-  spec.add_dependency             'puppet-lint', '>= 1.1', '< 4.0'
+  spec.add_dependency             'puppet-lint', '>= 1.1', '< 5.0'
 
   spec.add_development_dependency 'rake', '~> 13.0.0'
   spec.add_development_dependency 'rspec', '~> 3.12.0'
   spec.add_development_dependency 'rspec-collection_matchers', '~> 1.0'
   spec.add_development_dependency 'rspec-its', '~> 1.0'
   spec.add_development_dependency 'rspec-json_expectations', '~> 2.2'
-  spec.add_development_dependency 'rubocop', '~> 0.93.0'
-  spec.add_development_dependency 'rubocop-rspec', '~> 1.44.1'
+  spec.add_development_dependency 'rubocop', '~> 1.50.0'
+  spec.add_development_dependency 'rubocop-rake'
+  spec.add_development_dependency 'rubocop-rspec', '~> 2.22.0'
   spec.add_development_dependency 'simplecov', '~> 0.22.0'
 end
