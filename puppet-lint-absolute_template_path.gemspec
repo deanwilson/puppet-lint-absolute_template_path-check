@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name        = 'puppet-lint-absolute_template_path'
-  spec.version     = '1.0.2'
+  spec.version     = '2.0.0'
   spec.homepage    = 'https://github.com/deanwilson/puppet-lint-absolute_template_path-check'
   spec.license     = 'MIT'
   spec.author      = 'Dean Wilson'
