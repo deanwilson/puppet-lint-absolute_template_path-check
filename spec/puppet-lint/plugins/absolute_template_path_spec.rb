@@ -15,7 +15,7 @@ describe 'absolute_template_path' do
     end
 
     it 'does not detect any problems' do
-      expect(problems).to have(0).problems
+      expect(problems.size).to eq(0)
     end
   end
 
@@ -32,7 +32,7 @@ describe 'absolute_template_path' do
       end
 
       it 'detects no problems' do
-        expect(problems).to have(0).problems
+        expect(problems.size).to eq(0)
       end
     end
   end
@@ -50,7 +50,7 @@ describe 'absolute_template_path' do
       end
 
       it 'detects no problems' do
-        expect(problems).to have(0).problems
+        expect(problems.size).to eq(0)
       end
     end
 
@@ -66,7 +66,7 @@ describe 'absolute_template_path' do
       end
 
       it 'detects a single problem' do
-        expect(problems).to have(1).problem
+        expect(problems.size).to eq(1)
       end
 
       it 'creates a warning' do
